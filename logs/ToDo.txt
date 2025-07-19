@@ -1,0 +1,23 @@
+Need:
+	
+	GitHub this thing so I can start anew with physics simulations
+	Alternate path?: Getting Over It, but with combat!
+	
+	Knockback (away from player, weapon, or [hard] weapon velocity)
+	Gun
+	
+Want:
+	Sword (pokes)
+	Shovel (digs for projectiles)
+	Timestop, screenshake, bubble (num!), particles vfx on Good Hits
+	Random Damage offsets
+	Balancing: Active Weapon frames
+	Death particle vfx
+	
+	Execptionally slow gun: Enemy drop, same gun as enemies
+
+
+Game breaking things:
+	velocity_offset is only for enemies
+	Knockback is reset every time there is new knockback (instead add to velocity_offset?)
+	Collision layers are set really weird, but account for area2Ds apparently not detecting area2Ds

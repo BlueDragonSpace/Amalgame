@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrv3fcurth1k"]
+
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="1_d363r"]
+
+[node name="Hp" type="TextureRect"]
+modulate = Color(0.859332, 0, 0.324828, 1)
+texture = ExtResource("1_d363r")
+expand_mode = 3

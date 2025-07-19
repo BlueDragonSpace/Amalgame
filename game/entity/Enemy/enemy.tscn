@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b05r3dmahl73y"]
+
+[ext_resource type="Script" uid="uid://c4sq5ykydfdfm" path="res://game/entity/Enemy/enemy.gd" id="1_dupy5"]
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="2_hgses"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtuew"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlfh1"]
+radius = 192.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 22
+script = ExtResource("1_dupy5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0.364706, 0.34902, 1)
+position = Vector2(-1.19209e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgses")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gtuew")
+
+[node name="sight" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sight"]
+shape = SubResource("CircleShape2D_qlfh1")
+
+[node name="DevLabel" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -96.0
+offset_right = 28.0
+offset_bottom = -63.0
+text = "Speed:
+Hp: "
+
+[connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]

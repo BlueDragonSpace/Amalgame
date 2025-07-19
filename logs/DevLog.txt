@@ -1,0 +1,12 @@
+(7/14/2025) 5:30 PM
+Started Project, found Hack Club JumpStart (program for making games)
+Basic infrastructure
+
+(7/16/2025)
+Framework and basic background things were created... Basic Player (lol can't move yet), 
+Pause, other UI, Weapon and Entity (and Enemy) abstract classes, a basic Axe weapon is virtually completed, 
+and the action of Attacking (at least with melee weapons) has been created.
+
+Learned stuff on Godot Themes and class_names. 
+
+(7/17/2025)

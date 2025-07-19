@@ -1,0 +1,5 @@
+Sword Font: invaderace (on BitFontMaker2)
+HeadOn Dungeon Tileset: incolgames --- https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art/download/eyJleHBpcmVzIjoxNzUyNjc5NDYyLCJpZCI6MTUzOTU3MX0%3d.QvosV6smJTPJ%2ftJOkKujlgRq4H8%3d
+TopDown Dungeon Tileset: Pixel_Poem --- https://pixel-poem.itch.io/dungeon-assetpuck
+
+All other code, assets, and work created by the legendary BlueDragon (or is it Catragon?)
