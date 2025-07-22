@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clodd1k8jnb1n"]
 
 [ext_resource type="PackedScene" uid="uid://cyvuy3mhi3bpi" path="res://UI/root_ui.tscn" id="1_pyidc"]
-[ext_resource type="PackedScene" uid="uid://rri5jrcg2ejg" path="res://game/root_game.tscn" id="2_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://cchmhkcuw0w3y" path="res://game/game_root.tscn" id="2_pyidc"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -13,4 +13,4 @@ grow_vertical = 2
 
 [node name="RootUI" parent="." instance=ExtResource("1_pyidc")]
 
-[node name="RootGame" parent="." instance=ExtResource("2_vvh5c")]
+[node name="GameRoot" parent="." instance=ExtResource("2_pyidc")]

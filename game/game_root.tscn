@@ -1,0 +1,165 @@
+[gd_scene load_steps=9 format=3 uid="uid://cchmhkcuw0w3y"]
+
+[ext_resource type="PackedScene" uid="uid://deepsymcpka5u" path="res://game/player/player.tscn" id="1_lh3ym"]
+[ext_resource type="PackedScene" uid="uid://6glpu4p4lwbe" path="res://game/enemy/enemy.tscn" id="2_2suya"]
+[ext_resource type="PackedScene" uid="uid://bn3eieajc65u5" path="res://game/enemy/jumper/Jumper.tscn" id="3_h7acg"]
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="5_dvaft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6pox"]
+size = Vector2(584, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qud3c"]
+size = Vector2(584, 544)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xk365"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w86oe"]
+size = Vector2(112, 112)
+
+[node name="GameRoot" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_lh3ym")]
+position = Vector2(3776, -1216)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="Enemy" parent="." instance=ExtResource("2_2suya")]
+position = Vector2(5312, -512)
+
+[node name="Jumper" parent="." instance=ExtResource("3_h7acg")]
+position = Vector2(3088, -218)
+
+[node name="environment" type="Node2D" parent="."]
+position = Vector2(3904, -192)
+
+[node name="platform3" type="StaticBody2D" parent="environment"]
+position = Vector2(-1344, -168)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Icon" type="Sprite2D" parent="environment/platform3"]
+position = Vector2(620, -96)
+scale = Vector2(4.5625, 1)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/platform3"]
+position = Vector2(624, -96)
+shape = SubResource("RectangleShape2D_i6pox")
+
+[node name="platform4" type="StaticBody2D" parent="environment"]
+position = Vector2(-1728, -384)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Icon" type="Sprite2D" parent="environment/platform4"]
+position = Vector2(620, -96)
+scale = Vector2(4.5625, 1)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/platform4"]
+position = Vector2(620, -304)
+shape = SubResource("RectangleShape2D_qud3c")
+
+[node name="floor" type="StaticBody2D" parent="environment"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/floor"]
+position = Vector2(0, 128)
+shape = SubResource("WorldBoundaryShape2D_xk365")
+
+[node name="floor_art" type="Sprite2D" parent="environment/floor"]
+position = Vector2(120, 382)
+scale = Vector2(27.875, 3.96875)
+texture = ExtResource("5_dvaft")
+
+[node name="crate" type="RigidBody2D" parent="environment"]
+position = Vector2(2504, 46)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate"]
+shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="crate2" type="RigidBody2D" parent="environment"]
+position = Vector2(2368, 46)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate2"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate2"]
+shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="crate3" type="RigidBody2D" parent="environment"]
+position = Vector2(2440, -82)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate3"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate3"]
+shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="crate4" type="RigidBody2D" parent="environment"]
+position = Vector2(2592, -82)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate4"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate4"]
+shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="crate5" type="RigidBody2D" parent="environment"]
+position = Vector2(2640, 38)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate5"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate5"]
+shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="crate6" type="RigidBody2D" parent="environment"]
+position = Vector2(2528, -232)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate6"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_dvaft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate6"]
+shape = SubResource("RectangleShape2D_w86oe")

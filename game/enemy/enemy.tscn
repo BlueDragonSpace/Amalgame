@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://6glpu4p4lwbe"]
+
+[ext_resource type="Script" uid="uid://b3sosybtgiwyw" path="res://game/enemy/enemy.gd" id="1_8s3bx"]
+[ext_resource type="Texture2D" uid="uid://dttai0xtxqhnv" path="res://game/enemy/angeryGodot.png" id="2_lw4yu"]
+[ext_resource type="AudioStream" uid="uid://ca30suekevatx" path="res://game/player/steve-old-hurt-sound_XKZxUk4.mp3" id="3_7388b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5d3f"]
+size = Vector2(216, 208)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 48
+collision_mask = 55
+mass = 2.0
+lock_rotation = true
+max_contacts_reported = 1
+script = ExtResource("1_8s3bx")
+
+[node name="AngeryGodot" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(1.21348, 1.15556)
+texture = ExtResource("2_lw4yu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g5d3f")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7388b")
+max_distance = 4096.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

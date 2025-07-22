@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy2ox4ntl11cb"]
+
+[ext_resource type="Script" uid="uid://b3ki74j62e1q4" path="res://game/player/weapon/pew_pew/pew_pew.gd" id="1_h5ri5"]
+[ext_resource type="Texture2D" uid="uid://l4vrkwmsf47d" path="res://game/player/weapon/pew_pew/slingshot.png" id="1_qa6oo"]
+
+[node name="PewPew" type="Node2D"]
+script = ExtResource("1_h5ri5")
+
+[node name="Slingshot" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+scale = Vector2(0.745992, 0.698075)
+texture = ExtResource("1_qa6oo")
+flip_h = true

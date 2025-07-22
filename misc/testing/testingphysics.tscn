@@ -1,0 +1,249 @@
+[gd_scene load_steps=15 format=3 uid="uid://d0ct11klw6vdy"]
+
+[ext_resource type="Script" uid="uid://c0mhpqw2ewggp" path="res://misc/testing/testingphysics.gd" id="1_eabhe"]
+[ext_resource type="PackedScene" uid="uid://deepsymcpka5u" path="res://game/player/player.tscn" id="2_3x8js"]
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="2_kapev"]
+[ext_resource type="Script" uid="uid://b3sosybtgiwyw" path="res://game/enemy/enemy.gd" id="5_3x8js"]
+[ext_resource type="Texture2D" uid="uid://dttai0xtxqhnv" path="res://game/enemy/angeryGodot.png" id="6_ohich"]
+[ext_resource type="AudioStream" uid="uid://ca30suekevatx" path="res://game/player/steve-old-hurt-sound_XKZxUk4.mp3" id="7_ohich"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84f45"]
+size = Vector2(216, 208)
+
+[sub_resource type="Animation" id="Animation_84f45"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:lin_vel_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy:lin_vel_y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ohich"]
+resource_name = "jump"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:lin_vel_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy:lin_vel_y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 35, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o3dap"]
+_data = {
+&"RESET": SubResource("Animation_84f45"),
+&"jump": SubResource("Animation_ohich")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3dap"]
+size = Vector2(584, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyjyw"]
+size = Vector2(584, 544)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eabhe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8d5s"]
+size = Vector2(112, 112)
+
+[node name="Testingphysics" type="Node2D"]
+script = ExtResource("1_eabhe")
+STR = 25.0
+
+[node name="testingPlayer" parent="." instance=ExtResource("2_3x8js")]
+position = Vector2(-672, -816)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, -656)
+zoom = Vector2(0.25, 0.25)
+
+[node name="Enemy" type="RigidBody2D" parent="."]
+position = Vector2(856, 64)
+collision_layer = 48
+collision_mask = 55
+mass = 2.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("5_3x8js")
+
+[node name="AngeryGodot" type="Sprite2D" parent="Enemy"]
+position = Vector2(52, -48)
+scale = Vector2(1.21348, 1.15556)
+texture = ExtResource("6_ohich")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(52, -48)
+shape = SubResource("RectangleShape2D_84f45")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("7_ohich")
+max_distance = 4096.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_o3dap")
+}
+autoplay = "jump"
+
+[node name="environment" type="Node2D" parent="."]
+
+[node name="platform3" type="StaticBody2D" parent="environment"]
+position = Vector2(-624, -136)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Icon" type="Sprite2D" parent="environment/platform3"]
+position = Vector2(620, -96)
+scale = Vector2(4.5625, 1)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/platform3"]
+position = Vector2(624, -96)
+shape = SubResource("RectangleShape2D_o3dap")
+
+[node name="platform4" type="StaticBody2D" parent="environment"]
+position = Vector2(-1728, -384)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Icon" type="Sprite2D" parent="environment/platform4"]
+position = Vector2(620, -96)
+scale = Vector2(4.5625, 1)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/platform4"]
+position = Vector2(620, -304)
+shape = SubResource("RectangleShape2D_xyjyw")
+
+[node name="floor" type="StaticBody2D" parent="environment"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/floor"]
+position = Vector2(0, 128)
+shape = SubResource("WorldBoundaryShape2D_eabhe")
+
+[node name="floor_art" type="Sprite2D" parent="environment/floor"]
+position = Vector2(120, 382)
+scale = Vector2(27.875, 3.96875)
+texture = ExtResource("2_kapev")
+
+[node name="crate" type="RigidBody2D" parent="environment"]
+position = Vector2(1344, 24)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[node name="crate2" type="RigidBody2D" parent="environment"]
+position = Vector2(1208, 24)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate2"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate2"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[node name="crate3" type="RigidBody2D" parent="environment"]
+position = Vector2(1280, -104)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate3"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate3"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[node name="crate4" type="RigidBody2D" parent="environment"]
+position = Vector2(1432, -104)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate4"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate4"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[node name="crate5" type="RigidBody2D" parent="environment"]
+position = Vector2(1480, 16)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate5"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate5"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[node name="crate6" type="RigidBody2D" parent="environment"]
+position = Vector2(1368, -254)
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="environment/crate6"]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_kapev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate6"]
+shape = SubResource("RectangleShape2D_q8d5s")
+
+[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
