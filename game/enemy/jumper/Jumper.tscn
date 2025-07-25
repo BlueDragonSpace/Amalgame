@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn3eieajc65u5"]
+[gd_scene load_steps=5 format=3 uid="uid://bn3eieajc65u5"]
 
 [ext_resource type="Script" uid="uid://co1shtrhf8nn6" path="res://game/enemy/jumper/jumper.gd" id="1_7qwau"]
 [ext_resource type="Texture2D" uid="uid://4uptwk5pqqee" path="res://game/enemy/jumper/spring.png" id="1_oi6bi"]
@@ -6,8 +6,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwau"]
 size = Vector2(128, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prq4b"]
+size = Vector2(128, 10)
+
 [node name="Jumper" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 55
+mass = 0.5
+lock_rotation = true
 script = ExtResource("1_7qwau")
+HP = 20
+HP_offset = [-5, 7]
+Armor = 7
 
 [node name="Spring" type="Sprite2D" parent="."]
 texture = ExtResource("1_oi6bi")
@@ -15,8 +25,18 @@ texture = ExtResource("1_oi6bi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7qwau")
 
-[node name="ground_ray" type="RayCast2D" parent="."]
-position = Vector2(0, 128)
-target_position = Vector2(0, 64)
+[node name="JumpTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="GroundRay" type="ShapeCast2D" parent="."]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_prq4b")
+target_position = Vector2(0, 0)
+collision_mask = 55
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

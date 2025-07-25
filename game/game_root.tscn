@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cchmhkcuw0w3y"]
+[gd_scene load_steps=11 format=3 uid="uid://cchmhkcuw0w3y"]
 
 [ext_resource type="PackedScene" uid="uid://deepsymcpka5u" path="res://game/player/player.tscn" id="1_lh3ym"]
 [ext_resource type="PackedScene" uid="uid://6glpu4p4lwbe" path="res://game/enemy/enemy.tscn" id="2_2suya"]
 [ext_resource type="PackedScene" uid="uid://bn3eieajc65u5" path="res://game/enemy/jumper/Jumper.tscn" id="3_h7acg"]
+[ext_resource type="PackedScene" uid="uid://c1vsgwbwsjmwb" path="res://game/enemy/charger/charger.tscn" id="4_bwd2a"]
 [ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="5_dvaft"]
+[ext_resource type="PackedScene" uid="uid://fxkycfnqsnee" path="res://game/rope.tscn" id="5_lh3ym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6pox"]
 size = Vector2(584, 124)
@@ -20,21 +22,23 @@ size = Vector2(112, 112)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_lh3ym")]
-position = Vector2(3776, -1216)
+position = Vector2(4608, -1408)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.35, 0.35)
 limit_left = 0
 limit_bottom = 0
-limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_2suya")]
-position = Vector2(5312, -512)
+position = Vector2(7040, -274)
 
 [node name="Jumper" parent="." instance=ExtResource("3_h7acg")]
-position = Vector2(3088, -218)
+position = Vector2(3776, -274)
+
+[node name="Charger" parent="." instance=ExtResource("4_bwd2a")]
+position = Vector2(5504, -256)
 
 [node name="environment" type="Node2D" parent="."]
 position = Vector2(3904, -192)
@@ -163,3 +167,15 @@ texture = ExtResource("5_dvaft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="environment/crate6"]
 shape = SubResource("RectangleShape2D_w86oe")
+
+[node name="Rope" parent="." instance=ExtResource("5_lh3ym")]
+position = Vector2(8640, -933)
+
+[node name="Rope2" parent="." instance=ExtResource("5_lh3ym")]
+position = Vector2(8512, -933)
+
+[node name="Rope3" parent="." instance=ExtResource("5_lh3ym")]
+position = Vector2(8320, -549)
+
+[node name="Rope4" parent="." instance=ExtResource("5_lh3ym")]
+position = Vector2(7360, -549)
