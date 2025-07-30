@@ -12,6 +12,7 @@ var has_weapon = true
 @export var STR: float = 170.0 #how powerfully you can swing your weapon
 @export var MAX_SWING : float = 25.0 #how fast you can swing at max (and in turn, max damage)
 
+@onready var PoundParticles: GPUParticles2D = $PoundParticles
 @onready var Animate: AnimationPlayer = $AnimationPlayer
 
 signal player_hit
@@ -74,6 +75,8 @@ func _physics_process(delta: float) -> void:
 	#reset position
 	if Input.is_action_just_pressed("debug3"):
 		global_position = Vector2(4500,-1200)
+	if Input.is_action_just_pressed("debug4"):
+		player_take_hit(self)
 
 func _on_body_entered(body: Node) -> void:
 	if body is Enemy and not invincible and not dev_inv:
@@ -99,3 +102,6 @@ func player_take_hit(body: Node) -> void:
 		HP -= 1
 		is_dead = true
 		in_control = false
+
+func pound() -> void:
+	PoundParticles.emitting = true

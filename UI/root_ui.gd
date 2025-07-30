@@ -1,9 +1,14 @@
 extends CanvasLayer
 
-@onready var hp_bar: HBoxContainer = $Theme/HpBar
+signal start_HUD_appear
+@onready var hp_bar: HBoxContainer = $Theme/HUD/HpBar
 
 @onready var pause_screen: Control = $Theme/PauseScreen
 var pausable = true #can go to pause screen
+
+signal started
+@onready var start_screen: Control = $Theme/StartScreen
+
 @onready var death_screen: Control = $Theme/DeathScreen
 
 @onready var Animate: AnimationPlayer = $AnimationPlayer
@@ -15,6 +20,7 @@ var HP = preload("res://UI/hp.tscn")
 var death_text = ["You have been\n is are now unalived", "Wow there are words here", "Hello, please take a number"]
 
 func _ready() -> void:
+	connect("start_HUD_appear", HUD_appear)
 	Player.connect("player_hit",change_hp)
 	Player.connect("player_dead", player_death)
 	death_screen.get_node("Label").text = death_text[randi_range(0,death_text.size()-1)]
@@ -48,5 +54,15 @@ func player_death() -> void:
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
+	death_screen.visible = false
+
 	Engine.time_scale = 1.0
 	pausable = true
+
+func _on_start_pressed() -> void:
+
+	started.emit()
+	Animate.play("start_fade")
+
+func HUD_appear() -> void:
+	Animate.play("HUD_appear")

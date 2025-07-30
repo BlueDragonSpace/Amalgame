@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d03vdfbu4ty0s"]
+
+[ext_resource type="Script" uid="uid://t54k2t8pcb15" path="res://game/enemy/swinger/swing.gd" id="1_7ck0r"]
+[ext_resource type="Texture2D" uid="uid://b0ymdnvjfgrjx" path="res://game/enemy/swinger/swingset.png" id="2_7ck0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ck0r"]
+size = Vector2(128, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d3cq4"]
+radius = 64.0
+
+[node name="SwingPoint" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ck0r")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Swinger" type="RigidBody2D" parent="Node"]
+position = Vector2(512, 0)
+collision_layer = 48
+collision_mask = 55
+script = ExtResource("1_7ck0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/Swinger"]
+shape = SubResource("CircleShape2D_d3cq4")
+
+[node name="Swingset" type="Sprite2D" parent="Node/Swinger"]
+position = Vector2(0, 3.05176e-05)
+scale = Vector2(0.606635, 0.666667)
+texture = ExtResource("2_7ck0r")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Node/Swinger"]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Node/Swinger")
+softness = 16.0
+
+[connection signal="screen_entered" from="Node/Swinger/VisibleOnScreenNotifier2D" to="Node/Swinger" method="_on_visible_on_screen_notifier_2d_screen_entered"]

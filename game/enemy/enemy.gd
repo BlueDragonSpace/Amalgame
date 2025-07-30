@@ -68,3 +68,11 @@ func take_hit(damage: int, body: Node):
 
 func death() -> void:
 	queue_free()
+
+func find_x_direction(Point: Node2D) -> int:
+	var dir = global_position.x - Point.global_position.x
+
+	if dir < 0:
+		return 1
+	else:
+		return -1

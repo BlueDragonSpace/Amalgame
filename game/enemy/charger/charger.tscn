@@ -7,6 +7,20 @@
 radius = 64.0
 height = 256.0
 
+[sub_resource type="Animation" id="Animation_xerwu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:force_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_bnigd"]
 resource_name = "charge"
 length = 2.5
@@ -20,20 +34,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.5, 27.0833, 200, -0.416667, -214.583, 0.25, 0, 0, -0.133333, 211.806, 0.25, 0),
 "times": PackedFloat32Array(0, 1.75, 2.5)
-}
-
-[sub_resource type="Animation" id="Animation_xerwu"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:force_x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urrct"]

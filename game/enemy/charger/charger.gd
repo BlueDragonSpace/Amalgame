@@ -26,14 +26,6 @@ func _on_reroute_timer_timeout() -> void:
 	charge_direction = find_x_direction(Player)
 	Animate.play("charge")
 
-func find_x_direction(Point: Node2D) -> int:
-	var dir = global_position.x - Point.global_position.x
-
-	if dir < 0:
-		return 1
-	else:
-		return -1
-
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	active = true

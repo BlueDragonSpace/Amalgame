@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+warnings/check_invalid_track_paths=false
+
 [application]
 
 config/name="Amalgame"
@@ -20,6 +24,13 @@ config/icon="uid://p3wnd7de0qmd"
 [autoload]
 
 Global="*res://global.gd"
+Helper="*res://helper.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="viewport"
 
 [editor]
 
@@ -28,6 +39,7 @@ movie_writer/movie_file="E:/tools/godot/amalgame/logs/Devlog 3.avi"
 [global_group]
 
 Player="Call Player node from wherever in scene"
+UI="RootUI"
 
 [gui]
 

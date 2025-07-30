@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://oda47w6isff2"]
+
+[ext_resource type="Script" uid="uid://defdlvgmcb1ot" path="res://game/enemy/flier/flier.gd" id="1_gq4g4"]
+[ext_resource type="Texture2D" uid="uid://dnx03givhfk5w" path="res://game/enemy/flier/fatBird.png" id="2_ilhr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilhr7"]
+radius = 64.0
+
+[node name="Flier" type="RigidBody2D"]
+collision_layer = 48
+collision_mask = 55
+mass = 0.1
+script = ExtResource("1_gq4g4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ilhr7")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Offset/SwingPoint")
+
+[node name="Art" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.989071)
+texture = ExtResource("2_ilhr7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Offset" type="Node" parent="."]
+
+[node name="SwingPoint" type="StaticBody2D" parent="Offset"]
+position = Vector2(1536, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Marker2D" type="Marker2D" parent="Offset/SwingPoint"]
+gizmo_extents = 211.6
+
+[node name="FatBird" type="Sprite2D" parent="Offset/SwingPoint"]
+texture = ExtResource("2_ilhr7")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
