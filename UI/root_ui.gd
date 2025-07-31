@@ -38,6 +38,18 @@ func _process(delta: float) -> void:
 		
 	if Player.is_dead:
 		Engine.time_scale -= 0.3 * delta
+	
+	if start_screen.visible and Input.is_action_just_pressed("unpause"):
+		started.emit()
+		Animate.play("start_fade")
+	
+	if death_screen.visible and Input.is_action_just_pressed("unpause"):
+		get_tree().reload_current_scene()
+		death_screen.visible = false
+
+		Engine.time_scale = 1.0
+		pausable = true
+
 
 func change_hp() -> void:
 	for child in hp_bar.get_children():
@@ -52,6 +64,10 @@ func player_death() -> void:
 	pausable = false
 	
 
+func HUD_appear() -> void:
+	Animate.play("HUD_appear")
+
+#unfortunately, I'm making this game to not have touch or mouse controls, 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
 	death_screen.visible = false
@@ -63,6 +79,3 @@ func _on_start_pressed() -> void:
 
 	started.emit()
 	Animate.play("start_fade")
-
-func HUD_appear() -> void:
-	Animate.play("HUD_appear")

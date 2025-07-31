@@ -34,24 +34,6 @@ func take_hit(damage: int, body: Node):
 	
 	apply_central_impulse(dir * damage * 100)
 
-	#DAMAGE
-	damage = abs(damage)
-
-	#additional damage based on mass and speed of enemy colliding with weapon
-	# say a 0.5 spring collided with axe at (300, 2200) velocity [forward, downward]
-	# I want 300^2 + 2200^2 = c^2, c * .5, divide by 100 is the damage
-
-	var added_damage = (linear_velocity.x * linear_velocity.x) \
-	+ (linear_velocity.y * linear_velocity.y)
-
-	added_damage = sqrt(added_damage) #Pythagorean Theorem
-	added_damage *= mass #more mass, more damage
-	added_damage /= 100.0 #Divide by 100 for good measure
-	round(added_damage) # no decimal damage
-
-	@warning_ignore("narrowing_conversion")
-	damage += added_damage
-
 	var notif_bubble = notif.instantiate()
 	notif_bubble.position = global_position
 

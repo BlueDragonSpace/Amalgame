@@ -89,8 +89,8 @@ _data = {
 }
 
 [node name="DamageBubble" type="Label"]
-offset_right = 240.0
-offset_bottom = 75.0
+offset_right = 384.0
+offset_bottom = 120.0
 theme = ExtResource("1_oymyy")
 text = "Number"
 script = ExtResource("1_hauh8")

@@ -12,6 +12,8 @@ var has_weapon = true
 @export var STR: float = 170.0 #how powerfully you can swing your weapon
 @export var MAX_SWING : float = 25.0 #how fast you can swing at max (and in turn, max damage)
 
+@onready var Camera: Node2D = get_tree().get_nodes_in_group("Player")[1]
+
 @onready var PoundParticles: GPUParticles2D = $PoundParticles
 @onready var Animate: AnimationPlayer = $AnimationPlayer
 
@@ -31,8 +33,8 @@ var is_dead = false: #bleh death
 			player_dead.emit() 
 		is_dead = new_dead
 
-const SPEED = 10000.0 #really high speed, trying to bypass axe weight
-const MAX_SPEED = 1200.0 #max speed... on ground
+const SPEED = 20000.0 #really high speed, trying to bypass axe weight
+const MAX_SPEED = 1600.0 #max speed... on ground
 
 var weapon_angular_velocity: float = 0.0
 var facing_dir: String = 'neutral' #should be enum, 'neutral', 'left', 'right'
@@ -84,11 +86,12 @@ func _on_body_entered(body: Node) -> void:
 
 func player_take_hit(body: Node) -> void:
 
+	oof.play()
+
 	if HP > 1:
 
-		HP -= 1
 		Animate.play("flinch")
-		oof.play()
+		Camera.screenshake(32, 0.7)
 
 		var dir = body.global_position - global_position
 		dir = dir.normalized()
@@ -99,9 +102,11 @@ func player_take_hit(body: Node) -> void:
 
 		linear_velocity += dir * 4000.0
 	else:
-		HP -= 1
 		is_dead = true
 		in_control = false
 
+	HP -= 1
+
 func pound() -> void:
 	PoundParticles.emitting = true
+	Camera.screenshake(4,0.2)

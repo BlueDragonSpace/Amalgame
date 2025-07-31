@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cchmhkcuw0w3y"]
+[gd_scene load_steps=18 format=3 uid="uid://cchmhkcuw0w3y"]
 
 [ext_resource type="PackedScene" uid="uid://deepsymcpka5u" path="res://game/player/player.tscn" id="1_lh3ym"]
 [ext_resource type="PackedScene" uid="uid://6glpu4p4lwbe" path="res://game/enemy/enemy.tscn" id="2_2suya"]
+[ext_resource type="Script" uid="uid://b1qr6ypi0skw1" path="res://game/player/camera_hold.gd" id="2_xk365"]
 [ext_resource type="Script" uid="uid://c4ktm5l6fyj2" path="res://game/env/start/start.gd" id="4_5sefw"]
 [ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="5_dvaft"]
 [ext_resource type="PackedScene" uid="uid://fxkycfnqsnee" path="res://game/env/rope.tscn" id="5_lh3ym"]
@@ -11,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://didy2uaptod3a" path="res://game/env/start/slideWhistleDown.mp3" id="7_g5d3f"]
 [ext_resource type="Texture2D" uid="uid://b813rqcg6d6yj" path="res://game/env/background/grasslands.webp" id="10_g5d3f"]
 [ext_resource type="PackedScene" uid="uid://45ripl2ltq5y" path="res://game/env/jumpPad/jump_pad.tscn" id="11_i6pox"]
+[ext_resource type="PackedScene" uid="uid://bn3eieajc65u5" path="res://game/enemy/jumper/Jumper.tscn" id="12_qud3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6pox"]
 size = Vector2(768, 124)
@@ -27,9 +29,10 @@ size = Vector2(584, 544)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_lh3ym")]
-position = Vector2(5568, -1344)
+position = Vector2(4160, -1088)
 
 [node name="CameraHold" type="Node2D" parent="Player" groups=["Player"]]
+script = ExtResource("2_xk365")
 
 [node name="StartCamera" type="Camera2D" parent="Player/CameraHold"]
 zoom = Vector2(0.2, 0.2)
@@ -104,7 +107,7 @@ shape = SubResource("RectangleShape2D_d8wum")
 
 [node name="HitGround" type="AudioStreamPlayer" parent="environment/start/startPound"]
 stream = ExtResource("6_dvaft")
-volume_db = -9.807
+volume_db = -21.094
 
 [node name="WhistleDown" type="AudioStreamPlayer" parent="environment/start"]
 editor_description = "This is a description for a node apparently"
@@ -289,7 +292,10 @@ texture = ExtResource("5_dvaft")
 position = Vector2(896, -192)
 
 [node name="jumpPad" parent="environment/jumpPads" instance=ExtResource("11_i6pox")]
-position = Vector2(1216, -101)
+position = Vector2(1224, -202)
+
+[node name="Jumper" parent="." instance=ExtResource("12_qud3c")]
+position = Vector2(1984, -1024)
 
 [connection signal="body_entered" from="environment/start/startPound" to="environment/start" method="_on_start_pound_body_entered"]
 [connection signal="finished" from="environment/start/startPound/HitGround" to="environment/start" method="_on_hit_ground_finished"]

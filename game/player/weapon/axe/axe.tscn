@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmjcctxdbueow"]
+[gd_scene load_steps=7 format=3 uid="uid://bmjcctxdbueow"]
 
 [ext_resource type="Script" uid="uid://c8c78v7o7xtyc" path="res://game/player/weapon/axe/axe.gd" id="1_aosnk"]
 [ext_resource type="Texture2D" uid="uid://p3wnd7de0qmd" path="res://game/player/weapon/axe/better_quality_square_axe.png" id="1_hya4j"]
+[ext_resource type="AudioStream" uid="uid://depj5pax6qibs" path="res://game/player/weapon/axe/axehit.wav" id="3_kl3f3"]
+[ext_resource type="AudioStream" uid="uid://bsslqrj4s5bfl" path="res://game/player/weapon/axe/AxeGround.wav" id="4_wqyxq"]
+[ext_resource type="AudioStream" uid="uid://b07s10uw8bjvv" path="res://game/player/weapon/axe/armorHitCrushed.mp3" id="5_pahua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kapev"]
 size = Vector2(322, 32)
@@ -10,6 +13,7 @@ size = Vector2(322, 32)
 collision_layer = 2
 collision_mask = 53
 continuous_cd = 1
+contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_aosnk")
 
@@ -30,4 +34,15 @@ collision_mask = 16
 position = Vector2(264, 24)
 polygon = PackedVector2Array(32, 0, 48, 8, 64, 16, 56, 32, 48, 48, -16, 64, -24, 56, -40, 48, -56, 32, -32, 24, -40, 16, -16, 8, -24, 0, -8, 0, -16, -8, 0, -48, -24, -48, -24, -56, -16, -72, -8, -88, 8, -88, 32, -72, 48, -64, 48, -56, 32, -48)
 
+[node name="Axehit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kl3f3")
+
+[node name="AxeGround" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wqyxq")
+volume_db = -9.256
+
+[node name="ArmorHitCrushed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pahua")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

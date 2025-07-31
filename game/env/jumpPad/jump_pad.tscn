@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://45ripl2ltq5y"]
+[gd_scene load_steps=6 format=3 uid="uid://45ripl2ltq5y"]
 
 [ext_resource type="Script" uid="uid://c2pm52ebph4v3" path="res://game/env/jumpPad/jump_pad.gd" id="1_o6ygs"]
+[ext_resource type="AudioStream" uid="uid://5k0fq30206fo" path="res://game/env/jumpPad/PressureSpring.mp3" id="2_l33cq"]
+[ext_resource type="AudioStream" uid="uid://cc1hpycryvw4g" path="res://game/env/jumpPad/spring.mp3" id="3_p3anc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r2jf"]
 size = Vector2(256, 20)
@@ -43,6 +45,13 @@ initial_offset = 64.0
 
 [node name="Release" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="PressureRising" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_l33cq")
+
+[node name="Spring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p3anc")
+volume_db = 17.756
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_exited" from="Pad" to="." method="_on_pad_body_exited"]
