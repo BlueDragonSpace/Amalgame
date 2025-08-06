@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbp750mrj6505"]
+
+[ext_resource type="Script" uid="uid://b21ghreibokew" path="res://game/env/checkpoint/checkpoint.gd" id="1_7u7mp"]
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="2_tcjqs"]
+[ext_resource type="AudioStream" uid="uid://dpttt5ux5r81" path="res://game/env/checkpoint/checkpoint.wav" id="3_8juoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8gy"]
+size = Vector2(256, 320)
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource("1_7u7mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_ft8gy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(2, 2.5)
+blend_mode = 1
+texture = ExtResource("2_tcjqs")
+
+[node name="Checkpoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8juoo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

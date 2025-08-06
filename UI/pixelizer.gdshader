@@ -12,7 +12,7 @@ uniform vec2 b_displacement = vec2(-3.0, 0.0);
 
 
 void fragment() {
-	
+
     //Pixel coordinates in screen space
     vec2 pixel_coords = floor(FRAGCOORD.xy / float(pixel_size)) * float(pixel_size);
     // Convert pixel coordinates to UVs for screen texture

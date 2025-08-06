@@ -32,7 +32,7 @@ func take_hit(damage: int, body: Node):
 
 	dir.y += -0.125 #adds a little upwards motion
 	
-	apply_central_impulse(dir * damage * 100)
+	apply_central_impulse(dir * damage * 50)
 
 	var notif_bubble = notif.instantiate()
 	notif_bubble.position = global_position

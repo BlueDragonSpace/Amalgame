@@ -23,6 +23,9 @@ func _ready() -> void:
 	connect("start_HUD_appear", HUD_appear)
 	Player.connect("player_hit",change_hp)
 	Player.connect("player_dead", player_death)
+
+	Global.check_checkpoint()
+
 	death_screen.get_node("Label").text = death_text[randi_range(0,death_text.size()-1)]
 
 func _process(delta: float) -> void:

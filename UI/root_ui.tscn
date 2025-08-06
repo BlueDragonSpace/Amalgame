@@ -473,6 +473,7 @@ grow_vertical = 0
 text = "Become a Rock"
 
 [node name="ChromaticAberration" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_dx8dt")
 anchors_preset = 15
 anchor_right = 1.0
@@ -484,6 +485,7 @@ grow_vertical = 2
 rect = Rect2(0, 0, 640, 480)
 
 [node name="Pixellizer" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_fkrse")
 anchors_preset = 15
 anchor_right = 1.0

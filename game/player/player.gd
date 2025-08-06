@@ -3,8 +3,8 @@ extends RigidBody2D
 
 @onready var oof: AudioStreamPlayer2D = $oof
 
-@onready var left_ray: RayCast2D = $left_ray
-@onready var right_ray: RayCast2D = $right_ray
+@onready var left_ray: ShapeCast2D = $left_ray
+@onready var right_ray: ShapeCast2D = $right_ray
 
 @onready var Weapon: PhysicsBody2D = $axe
 var has_weapon = true

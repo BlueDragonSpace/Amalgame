@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://deepsymcpka5u"]
+[gd_scene load_steps=16 format=3 uid="uid://deepsymcpka5u"]
 
 [ext_resource type="Script" uid="uid://hprsa631miqt" path="res://game/player/player.gd" id="1_8soms"]
 [ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="1_obar5"]
@@ -9,8 +9,13 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mchxk"]
 friction = 0.8
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfbbo"]
-size = Vector2(128, 128)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fytw"]
+radius = 64.0
+height = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fytw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ste8"]
 
 [sub_resource type="Curve" id="Curve_a4w0n"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.563954, 0.483146), -0.0345104, -0.0345104, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -197,8 +202,7 @@ in_control = true
 texture = ExtResource("1_obar5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_vfbbo")
+shape = SubResource("CapsuleShape2D_5fytw")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
@@ -206,12 +210,18 @@ current = true
 [node name="oof" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5fytw")
 
-[node name="left_ray" type="RayCast2D" parent="."]
-target_position = Vector2(-72, 0)
+[node name="left_ray" type="ShapeCast2D" parent="."]
+position = Vector2(-64, 0)
+shape = SubResource("RectangleShape2D_5fytw")
+target_position = Vector2(0, 0)
+max_results = 1
 collision_mask = 4
 
-[node name="right_ray" type="RayCast2D" parent="."]
-target_position = Vector2(72, 0)
+[node name="right_ray" type="ShapeCast2D" parent="."]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_4ste8")
+target_position = Vector2(0, 0)
+max_results = 1
 collision_mask = 4
 
 [node name="axe" parent="." instance=ExtResource("3_a4w0n")]

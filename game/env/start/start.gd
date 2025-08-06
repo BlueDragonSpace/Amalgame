@@ -8,9 +8,11 @@ extends Node2D
 @onready var FallSound: AudioStreamPlayer = $WhistleDown
 @onready var PoundSound: AudioStreamPlayer = $startPound/HitGround
 
+var FallSoundPlayed = false
+
 func _ready() -> void:
 	UI.connect("started",Box.queue_free)
-	UI.connect("started",FallSound.play)
+	UI.connect("started",fall_sound_play)
 
 func _on_start_pound_body_entered(body:Node2D) -> void:
 
@@ -23,6 +25,12 @@ func _on_start_pound_body_entered(body:Node2D) -> void:
 
 		PoundSound.play()
 
+func fall_sound_play() -> void:
+	if FallSoundPlayed:
+		pass
+	else:
+		FallSoundPlayed = true
+		FallSound.play()
 
 func _on_hit_ground_finished() -> void:
 	queue_free()
