@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbp750mrj6505"]
+
+[ext_resource type="Script" uid="uid://b21ghreibokew" path="res://game/env/checkpoint/checkpoint.gd" id="1_7u7mp"]
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="2_tcjqs"]
+[ext_resource type="AudioStream" uid="uid://dpttt5ux5r81" path="res://game/env/checkpoint/checkpoint.wav" id="3_8juoo"]
+[ext_resource type="Shader" uid="uid://li28xwortk2x" path="res://game/env/checkpoint/inverse.gdshader" id="4_tcjqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8gy"]
+size = Vector2(256, 4288)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8juoo"]
+shader = ExtResource("4_tcjqs")
+
+[sub_resource type="Animation" id="Animation_8juoo"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2160, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tcjqs"]
+resource_name = "light"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2160, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.25, -0.25, 0, 0.25, 0, 33.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft8gy"]
+_data = {
+&"RESET": SubResource("Animation_8juoo"),
+&"light": SubResource("Animation_tcjqs")
+}
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 255
+script = ExtResource("1_7u7mp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_ft8gy")
+
+[node name="Checkpoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8juoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8juoo")
+position = Vector2(0, -2160)
+scale = Vector2(2, -0.25)
+texture = ExtResource("2_tcjqs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ft8gy")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

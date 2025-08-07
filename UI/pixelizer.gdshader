@@ -5,11 +5,6 @@ uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
 uniform int pixel_size : hint_range(1, 64) = 4; // Pixel size
 uniform vec2 screen_size = vec2(1920.0, 1080.0); // Screen size (set manually)
 
-// Chromatic Aberration vars
-uniform vec2 r_displacement = vec2(3.0, 0.0);
-uniform vec2 g_displacement = vec2(0.0, 0.0);
-uniform vec2 b_displacement = vec2(-3.0, 0.0);
-
 
 void fragment() {
 

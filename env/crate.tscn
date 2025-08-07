@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://md6xq70ktext"]
+
+[ext_resource type="Texture2D" uid="uid://b6swllkcjq2wl" path="res://misc/miscArt/icon.svg" id="1_ssmiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w86oe"]
+size = Vector2(128, 128)
+
+[node name="crate" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 55
+mass = 0.25
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-5.24521e-06, -1.66893e-06)
+texture = ExtResource("1_ssmiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w86oe")

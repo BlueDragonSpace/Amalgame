@@ -3,10 +3,23 @@ extends Node
 #Gonna write some junk here so that Hackatime Tracks something
 #Today is 5:17 PM 10/17/2023 (and I realize that time is not part of a day, but I don't care) (Go eat rocks)
 
-#What in the hell
-#Today is 8:00 AM 7/16/2025 (musta been godamm Copilot when I wrote 10/17/2023)
-#bluh
-
 #anywayyyyyyy
 
-var player_hp = 5
+var checkpoint_pos = Vector2(0,0) #0 is the start, 1,2,3 and so on are real checkkpoints
+
+@onready var Player = get_tree().get_nodes_in_group("Player")[0]
+
+func _ready() -> void:
+	check_checkpoint()
+
+func check_checkpoint() -> bool:
+	if checkpoint_pos == Vector2(0,0):
+		return false
+	else:
+		call_deferred("set_pos")
+		return true
+
+
+func set_pos():
+	Player = get_tree().get_nodes_in_group("Player")[0]
+	Player.global_position = checkpoint_pos

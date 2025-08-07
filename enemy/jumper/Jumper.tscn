@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=3 uid="uid://bn3eieajc65u5"]
+
+[ext_resource type="Script" uid="uid://co1shtrhf8nn6" path="res://game/enemy/jumper/jumper.gd" id="1_7qwau"]
+[ext_resource type="Texture2D" uid="uid://4uptwk5pqqee" path="res://game/enemy/jumper/spring.png" id="1_oi6bi"]
+[ext_resource type="AudioStream" uid="uid://cf6mkycxl48d2" path="res://game/enemy/jumper/springJump.mp3" id="3_prq4b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwau"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prq4b"]
+size = Vector2(128, 10)
+
+[sub_resource type="Animation" id="Animation_7qwau"]
+resource_name = "compression"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spring:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.41436, -0.25, 0, 0.25, 0, 1.49857, -0.25, 0, 0.25, 0, 1.50949, -0.25, 0, 0.25, 0, 1.41436, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.9, 1.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spring:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.41436, -0.25, 0, 0.25, 0, 0.801323, -0.25, 0, 0.25, 0, 2.34152, -0.25, 0, 0.25, 0, 1.41436, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.9, 1.1)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"mid_compress"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_prq4b"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spring:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.41436, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spring:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.41436, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_indae"]
+_data = {
+&"RESET": SubResource("Animation_prq4b"),
+&"compression": SubResource("Animation_7qwau")
+}
+
+[node name="Jumper" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 55
+mass = 0.5
+lock_rotation = true
+script = ExtResource("1_7qwau")
+HP = 60
+HP_offset = [-5, 7]
+Armor = 7
+
+[node name="Spring" type="Sprite2D" parent="."]
+position = Vector2(-0.707188, -0.707188)
+scale = Vector2(1.41436, 1.41436)
+texture = ExtResource("1_oi6bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7qwau")
+
+[node name="JumpTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
+
+[node name="GroundRay" type="ShapeCast2D" parent="."]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_prq4b")
+target_position = Vector2(0, 0)
+collision_mask = 55
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_indae")
+}
+
+[node name="SpringJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_prq4b")
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

@@ -6,6 +6,7 @@ signal start_HUD_appear
 @onready var pause_screen: Control = $Theme/PauseScreen
 var pausable = true #can go to pause screen
 
+var has_started = false
 signal started
 @onready var start_screen: Control = $Theme/StartScreen
 
@@ -25,6 +26,13 @@ func _ready() -> void:
 	Player.connect("player_dead", player_death)
 
 	Global.check_checkpoint()
+	if Global.check_checkpoint():
+		
+		start_screen.visible = false
+		has_started = true
+		Animate.play("death_reset_out")
+		
+
 
 	death_screen.get_node("Label").text = death_text[randi_range(0,death_text.size()-1)]
 
@@ -42,16 +50,17 @@ func _process(delta: float) -> void:
 	if Player.is_dead:
 		Engine.time_scale -= 0.3 * delta
 	
-	if start_screen.visible and Input.is_action_just_pressed("unpause"):
+	if start_screen.visible and Input.is_action_just_pressed("unpause") and not has_started:
 		started.emit()
 		Animate.play("start_fade")
+		has_started = true
 	
 	if death_screen.visible and Input.is_action_just_pressed("unpause"):
-		get_tree().reload_current_scene()
-		death_screen.visible = false
-
 		Engine.time_scale = 1.0
-		pausable = true
+		Animate.play("death_reset")
+
+	if Input.is_action_just_pressed("debug5"):
+		Animate.play("death_reset_out")
 
 
 func change_hp() -> void:
@@ -70,15 +79,9 @@ func player_death() -> void:
 func HUD_appear() -> void:
 	Animate.play("HUD_appear")
 
-#unfortunately, I'm making this game to not have touch or mouse controls, 
-func _on_retry_pressed() -> void:
+func retry() -> void:
 	get_tree().reload_current_scene()
 	death_screen.visible = false
 
 	Engine.time_scale = 1.0
 	pausable = true
-
-func _on_start_pressed() -> void:
-
-	started.emit()
-	Animate.play("start_fade")

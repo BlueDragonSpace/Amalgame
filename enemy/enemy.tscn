@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://6glpu4p4lwbe"]
+
+[ext_resource type="Script" uid="uid://b3sosybtgiwyw" path="res://game/enemy/enemy.gd" id="1_8s3bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5d3f"]
+size = Vector2(216, 208)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 55
+mass = 2.0
+lock_rotation = true
+max_contacts_reported = 1
+script = ExtResource("1_8s3bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g5d3f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1vsgwbwsjmwb"]
+
+[ext_resource type="Texture2D" uid="uid://de75n1tsbw72s" path="res://game/enemy/charger/derek.png" id="1_00cw5"]
+[ext_resource type="Script" uid="uid://cn8l67xhmu1nn" path="res://game/enemy/charger/charger.gd" id="1_bnigd"]
+[ext_resource type="Texture2D" uid="uid://6ugbp0nigigu" path="res://game/enemy/charger/dustball.png" id="2_xerwu"]
+[ext_resource type="AudioStream" uid="uid://cv0eysixxdbr0" path="res://game/enemy/charger/rushBull.wav" id="4_bb62g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnigd"]
+radius = 64.0
+height = 256.0
+
+[sub_resource type="Animation" id="Animation_xerwu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:force_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bnigd"]
+resource_name = "charge"
+length = 2.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:force_x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.5, 27.0833, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 200, -0.416667, -214.583, 0.25, 0, 0, -0.133333, 211.806, 0.25, 0),
+"times": PackedFloat32Array(0, 0.466667, 0.9, 1.75, 2.5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.167604,
+"start_offset": 0.0,
+"stream": ExtResource("4_bb62g")
+}],
+"times": PackedFloat32Array(1.73333)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urrct"]
+_data = {
+&"RESET": SubResource("Animation_xerwu"),
+&"charge": SubResource("Animation_bnigd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnigd"]
+size = Vector2(128, 10)
+
+[node name="Charger" type="RigidBody2D"]
+collision_layer = 48
+collision_mask = 55
+mass = 1.5
+lock_rotation = true
+script = ExtResource("1_bnigd")
+HP = 130
+Armor = 0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 128)
+emitting = false
+amount = 40
+texture = ExtResource("2_xerwu")
+one_shot = true
+explosiveness = 0.55
+draw_order = 1
+direction = Vector2(-0.7, -0.25)
+spread = 30.0
+initial_velocity_min = 606.84
+initial_velocity_max = 606.84
+angular_velocity_min = 233.85
+angular_velocity_max = 233.85
+linear_accel_min = 42.43
+linear_accel_max = 42.43
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+
+[node name="Derek" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_00cw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bnigd")
+
+[node name="RerouteTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_urrct")
+}
+
+[node name="GroundRay" type="ShapeCast2D" parent="."]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_bnigd")
+target_position = Vector2(0, 0)
+collision_mask = 55
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -11.327
+
+[connection signal="timeout" from="RerouteTimer" to="." method="_on_reroute_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
