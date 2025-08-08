@@ -13,6 +13,7 @@ signal started
 @onready var death_screen: Control = $Theme/DeathScreen
 
 @onready var Animate: AnimationPlayer = $AnimationPlayer
+@onready var EnterSound: AudioStreamPlayer = $EnterSound
 
 @onready var Player = get_tree().get_nodes_in_group("Player")[0]
 
@@ -42,6 +43,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("pause"):
 			pause_screen.visible = true
 			get_tree().paused = true
+			EnterSound.play()
 
 		if Input.is_action_just_pressed("unpause") and get_tree().paused:
 			pause_screen.visible = false
@@ -58,6 +60,7 @@ func _process(delta: float) -> void:
 	if death_screen.visible and Input.is_action_just_pressed("unpause"):
 		Engine.time_scale = 1.0
 		Animate.play("death_reset")
+		EnterSound.play()
 
 	if Input.is_action_just_pressed("debug5"):
 		Animate.play("death_reset_out")

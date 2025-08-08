@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cyvuy3mhi3bpi"]
+[gd_scene load_steps=16 format=3 uid="uid://cyvuy3mhi3bpi"]
 
 [ext_resource type="Script" uid="uid://bd63wfyqmfwby" path="res://UI/root_ui.gd" id="1_6ke0s"]
 [ext_resource type="Theme" uid="uid://c173n3cp6ullh" path="res://UI/ui_theme.tres" id="1_qoywv"]
 [ext_resource type="PackedScene" uid="uid://ddrv3fcurth1k" path="res://UI/hp.tscn" id="3_6ke0s"]
 [ext_resource type="Shader" uid="uid://bvdsmokp06kq0" path="res://UI/pixelizer.gdshader" id="4_a8jcl"]
 [ext_resource type="Shader" uid="uid://rw0l3xhy1dqu" path="res://UI/ChromaticAberration.gdshader" id="4_fkrse"]
+[ext_resource type="AudioStream" uid="uid://b5igtlc0ijl71" path="res://UI/enter.wav" id="6_dx8dt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dx8dt"]
 shader = ExtResource("4_fkrse")
@@ -494,6 +495,9 @@ layout_mode = 2
 [node name="Hp2" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
 layout_mode = 2
 
+[node name="Hp3" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
+layout_mode = 2
+
 [node name="DeathScreen" type="ColorRect" parent="Theme"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -565,6 +569,10 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_fkrse")
 }
+
+[node name="EnterSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dx8dt")
+volume_db = -12.093
 
 [connection signal="pressed" from="Theme/StartScreen/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Theme/DeathScreen/Retry" to="." method="_on_retry_pressed"]

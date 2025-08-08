@@ -12,7 +12,8 @@ var FallSoundPlayed = false
 
 func _ready() -> void:
 	UI.connect("started",Box.queue_free)
-	UI.connect("started",fall_sound_play)
+	if not Global.check_checkpoint():
+		UI.connect("started",fall_sound_play)
 
 func _on_start_pound_body_entered(body:Node2D) -> void:
 

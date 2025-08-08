@@ -27,5 +27,8 @@ func _on_body_entered(_body:Node2D) -> void:
 		Animate.play("light")
 
 func set_active() -> void:
+
+	PlayerNodes[0].HP = PlayerNodes[0].max_HP
+
 	active = true
 	Global.checkpoint_pos = self.global_position

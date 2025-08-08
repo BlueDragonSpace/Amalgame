@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://lk3onegn01tx"]
+
+[ext_resource type="Script" uid="uid://dipuvd0l1pbff" path="res://game/env/enemy_spawner/enemy_spawner.gd" id="1_b2cw4"]
+[ext_resource type="PackedScene" uid="uid://bn3eieajc65u5" path="res://game/enemy/jumper/Jumper.tscn" id="2_rmutu"]
+
+[node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("Child_Path")]
+script = ExtResource("1_b2cw4")
+Spawned_Enemy = ExtResource("2_rmutu")
+Child_Path = NodePath("")

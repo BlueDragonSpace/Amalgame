@@ -1,0 +1,215 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy8nl0k67qicp"]
+
+[ext_resource type="Script" uid="uid://dkybxp7umi4hg" path="res://game/env/riseToLight/rise_to_light.gd" id="1_405ve"]
+[ext_resource type="Texture2D" uid="uid://bhs2cpat2fbf4" path="res://game/env/tilesetArt/mainlev_build.png" id="2_8vx3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xmp"]
+size = Vector2(3584, 128)
+
+[node name="RiseToLight" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("1_405ve")
+
+[node name="tooManySprites" type="Node2D" parent="."]
+
+[node name="MainlevBuild2" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1600, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild3" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1472, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild4" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1344, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild5" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1216, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild6" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1088, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild7" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-960, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild8" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-832, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild9" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-704, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild10" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-576, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild11" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-448, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild12" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-320, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild13" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-192, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild14" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-64, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild15" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(64, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild16" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(192, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild17" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(320, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild18" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(448, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild19" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(576, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild20" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(704, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild21" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(832, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild22" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(960, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild23" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1088, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild24" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1216, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild25" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1344, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild26" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1472, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="MainlevBuild27" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1600, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(976, 192, 16, 16)
+
+[node name="leftEnd" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(-1728, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(960, 192, 16, 16)
+
+[node name="rightEnd" type="Sprite2D" parent="tooManySprites"]
+position = Vector2(1728, 0)
+scale = Vector2(7.99997, 8)
+texture = ExtResource("2_8vx3v")
+region_enabled = true
+region_rect = Rect2(992, 192, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d5xmp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
