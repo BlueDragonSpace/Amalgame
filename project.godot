@@ -25,6 +25,7 @@ config/icon="uid://p3wnd7de0qmd"
 
 Global="*res://global.gd"
 Helper="*res://helper.gd"
+Music="*res://music/music.tscn"
 
 [display]
 

@@ -19,7 +19,8 @@ func spawn_enemy() -> void:
 	if instance.name == "SwingPoint":
 		var stupid_bird = instance.get_node("Node").get_node("Swinger")
 		stupid_bird.active = true
-	else:
+	elif instance.name == "Jumper":
 		instance.active = true
+	#bull doesn't get activated until seen
 
 	Child_Path.add_child(instance)

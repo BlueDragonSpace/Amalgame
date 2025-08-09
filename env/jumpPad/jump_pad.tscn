@@ -75,10 +75,12 @@ wait_time = 0.5
 
 [node name="PressureRising" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_l33cq")
+bus = &"SFX"
 
 [node name="Spring" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_p3anc")
 volume_db = 17.756
+bus = &"SFX"
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_exited" from="Pad" to="." method="_on_pad_body_exited"]
