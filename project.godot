@@ -14,11 +14,13 @@ warnings/check_invalid_track_paths=false
 
 [application]
 
-config/name="Amalgame"
+config/name="Cascade"
 config/description="Getting Over It... possibly (?), but not a Fodian Game.
 Rather, it's got combat and dungeon system, and it's not ragebait."
+config/version="1.0.0"
 run/main_scene="uid://clodd1k8jnb1n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://ck61ak6dg0gfa"
 config/icon="uid://p3wnd7de0qmd"
 
 [autoload]
@@ -109,6 +111,11 @@ debug4={
 debug5={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":53,"key_label":0,"unicode":53,"location":0,"echo":false,"script":null)
+]
+}
+retry={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
 

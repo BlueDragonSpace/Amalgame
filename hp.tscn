@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrv3fcurth1k"]
+
+[ext_resource type="Texture2D" uid="uid://drxarohra6e3l" path="res://UI/Lame Heart.png" id="1_d363r"]
+
+[node name="Hp" type="TextureRect"]
+texture = ExtResource("1_d363r")
+expand_mode = 3

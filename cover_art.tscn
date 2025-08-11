@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2hb1473omu00"]
+
+[ext_resource type="Shader" uid="uid://5yy2sddx4tu1" path="res://UI/sineShaker.gdshader" id="1_aum67"]
+[ext_resource type="Texture2D" uid="uid://di3vheeqw3jan" path="res://game/env/tilesetArt/background1.png" id="1_lx2g3"]
+[ext_resource type="Texture2D" uid="uid://c5c4evrj4w7kt" path="res://misc/miscArt/Cascade Title 2.png" id="2_6gjhx"]
+[ext_resource type="Texture2D" uid="uid://jnu70f7bpxrg" path="res://game/env/tilesetArt/background2.png" id="2_v2xtg"]
+[ext_resource type="Texture2D" uid="uid://bhcl1oa8a8lk3" path="res://game/env/tilesetArt/background3.png" id="3_pkipn"]
+[ext_resource type="Texture2D" uid="uid://m5n1andg616c" path="res://game/env/tilesetArt/background4a.png" id="4_uvqd0"]
+[ext_resource type="Texture2D" uid="uid://bered5fi0i3na" path="res://game/env/tilesetArt/background4b.png" id="5_41kfi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bucw"]
+shader = ExtResource("1_aum67")
+shader_parameter/period_width = 1.28
+shader_parameter/amplitude = 0.05
+shader_parameter/shake_speed = 0.228
+shader_parameter/pixel = true
+shader_parameter/y_axis = false
+shader_parameter/tangent = false
+shader_parameter/pixel_scale = 1.0
+shader_parameter/pixel_offset = 0.0
+
+[node name="CoverArt" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Background1" type="Sprite2D" parent="Node2D"]
+position = Vector2(2178, 848)
+scale = Vector2(2.23381, 2.23381)
+texture = ExtResource("1_lx2g3")
+
+[node name="Background2" type="Sprite2D" parent="Node2D"]
+position = Vector2(2178, 848)
+scale = Vector2(2.23381, 2.23381)
+texture = ExtResource("2_v2xtg")
+
+[node name="Background3" type="Sprite2D" parent="Node2D"]
+position = Vector2(2178, 848)
+scale = Vector2(2.23381, 2.23381)
+texture = ExtResource("3_pkipn")
+
+[node name="Background4a" type="Sprite2D" parent="Node2D"]
+position = Vector2(2178, 848)
+scale = Vector2(2.23381, 2.23381)
+texture = ExtResource("4_uvqd0")
+
+[node name="Background4b" type="Sprite2D" parent="Node2D"]
+position = Vector2(2178, 848)
+scale = Vector2(2.23381, 2.23381)
+texture = ExtResource("5_41kfi")
+
+[node name="CascadeTitle2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2bucw")
+position = Vector2(2179, 895)
+scale = Vector2(18.7857, 18.7857)
+texture = ExtResource("2_6gjhx")

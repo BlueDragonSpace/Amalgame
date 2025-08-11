@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://45ripl2ltq5y"]
+
+[ext_resource type="Script" uid="uid://c2pm52ebph4v3" path="res://game/env/jumpPad/jump_pad.gd" id="1_o6ygs"]
+[ext_resource type="Texture2D" uid="uid://bhs2cpat2fbf4" path="res://game/env/tilesetArt/mainlev_build.png" id="2_jd3na"]
+[ext_resource type="AudioStream" uid="uid://5k0fq30206fo" path="res://game/env/jumpPad/PressureSpring.mp3" id="2_l33cq"]
+[ext_resource type="Texture2D" uid="uid://4uptwk5pqqee" path="res://game/enemy/jumper/spring.png" id="3_ipgbo"]
+[ext_resource type="AudioStream" uid="uid://cc1hpycryvw4g" path="res://game/env/jumpPad/spring.mp3" id="3_p3anc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r2jf"]
+size = Vector2(256, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6ygs"]
+size = Vector2(128, 20)
+
+[node name="jumpPad" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("1_o6ygs")
+impulse_str = 10000.0
+
+[node name="base" type="Sprite2D" parent="."]
+position = Vector2(0, 192)
+scale = Vector2(5.33333, 4)
+texture = ExtResource("2_jd3na")
+region_enabled = true
+region_rect = Rect2(960, 112, 48, 16)
+
+[node name="Spring2" type="Sprite2D" parent="."]
+position = Vector2(-71, 114)
+scale = Vector2(0.652575, 0.529918)
+texture = ExtResource("3_ipgbo")
+
+[node name="Spring3" type="Sprite2D" parent="."]
+position = Vector2(68, 113)
+scale = Vector2(0.652575, 0.529918)
+texture = ExtResource("3_ipgbo")
+
+[node name="Pad" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 55
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="pad" type="Sprite2D" parent="Pad"]
+position = Vector2(0, 28)
+scale = Vector2(5.33333, 4.5)
+texture = ExtResource("2_jd3na")
+region_enabled = true
+region_rect = Rect2(960, 192, 48, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pad"]
+shape = SubResource("RectangleShape2D_6r2jf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_o6ygs")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Pad")
+length = 128.0
+rest_length = 64.0
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Pad")
+length = 128.0
+initial_offset = 64.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Release" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="PressureRising" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_l33cq")
+bus = &"SFX"
+
+[node name="Spring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p3anc")
+volume_db = 17.756
+bus = &"SFX"
+
+[connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
+[connection signal="body_exited" from="Pad" to="." method="_on_pad_body_exited"]
+[connection signal="timeout" from="Release" to="." method="_on_release_timeout"]

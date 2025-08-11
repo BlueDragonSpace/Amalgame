@@ -1,0 +1,798 @@
+[gd_scene load_steps=22 format=3 uid="uid://cyvuy3mhi3bpi"]
+
+[ext_resource type="Script" uid="uid://bd63wfyqmfwby" path="res://UI/root_ui.gd" id="1_6ke0s"]
+[ext_resource type="Theme" uid="uid://c173n3cp6ullh" path="res://UI/ui_theme.tres" id="1_qoywv"]
+[ext_resource type="PackedScene" uid="uid://ddrv3fcurth1k" path="res://UI/hp.tscn" id="3_6ke0s"]
+[ext_resource type="Texture2D" uid="uid://c5c4evrj4w7kt" path="res://misc/miscArt/Cascade Title 2.png" id="4_5qh0s"]
+[ext_resource type="Shader" uid="uid://bvdsmokp06kq0" path="res://UI/pixelizer.gdshader" id="4_a8jcl"]
+[ext_resource type="Shader" uid="uid://rw0l3xhy1dqu" path="res://UI/ChromaticAberration.gdshader" id="4_fkrse"]
+[ext_resource type="Texture2D" uid="uid://cyjqq5yruugrb" path="res://UI/sunsetForestNoCopyright.jpg" id="4_rugm2"]
+[ext_resource type="AudioStream" uid="uid://b5igtlc0ijl71" path="res://UI/enter.wav" id="6_dx8dt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qh0s"]
+
+[sub_resource type="Animation" id="Animation_5qh0s"]
+resource_name = "Finale"
+length = 30.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.0313)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SunsetForestNoCopyright:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(5.994, 10.0566)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EndText:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(13.5198, 17.0163)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Me:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(19.4805, 20.8791)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RestartButton:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(23.5098, 24.6753)
+}
+
+[sub_resource type="Animation" id="Animation_byxa4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SunsetForestNoCopyright:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EndText:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Me:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RestartButton:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tgxrj"]
+_data = {
+&"Finale": SubResource("Animation_5qh0s"),
+&"RESET": SubResource("Animation_byxa4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dx8dt"]
+shader = ExtResource("4_fkrse")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkrse"]
+shader = ExtResource("4_a8jcl")
+shader_parameter/pixel_size = 4
+shader_parameter/screen_size = Vector2(640, 480)
+
+[sub_resource type="Animation" id="Animation_dx8dt"]
+resource_name = "HUD_appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Theme/HUD:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Theme/HUD:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Theme/HUD:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Theme/HUD:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Theme/HUD:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.833333, 0.315972, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_a8jcl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Theme/DeathScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Theme/DeathScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Theme/DeathScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Theme/DeathScreen:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Theme/StartScreen:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Theme/StartScreen:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Theme/StartScreen:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Theme/StartScreen:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Theme/StartScreen:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Theme/HUD:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Theme/HUD:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Theme/DeathScreen:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Pixellizer:material:shader_parameter/pixel_size")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_rugm2"]
+resource_name = "death_reset"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"retry"
+}]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pixellizer:material:shader_parameter/pixel_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.433333, 0.57, 1)
+}
+
+[sub_resource type="Animation" id="Animation_hh8yt"]
+resource_name = "death_reset_out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pixellizer:material:shader_parameter/pixel_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(64, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("HUD_appear"),
+"times": PackedFloat32Array(0.0333333)
+}
+
+[sub_resource type="Animation" id="Animation_6ke0s"]
+resource_name = "fade_to_death"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Theme/DeathScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Theme/DeathScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Theme/DeathScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Theme/DeathScreen:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_fkrse"]
+resource_name = "start_fade"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Theme/StartScreen:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.266667, -1.16319, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.98)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Theme/StartScreen:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.233333, 1.55208, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.98)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Theme/StartScreen:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.213333, -1.55903, 0.25, 0),
+"times": PackedFloat32Array(0, 0.98)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Theme/StartScreen:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.246667, 1.10764, 0.25, 0),
+"times": PackedFloat32Array(0, 0.98)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Theme/StartScreen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkrse"]
+_data = {
+&"HUD_appear": SubResource("Animation_dx8dt"),
+&"RESET": SubResource("Animation_a8jcl"),
+&"death_reset": SubResource("Animation_rugm2"),
+&"death_reset_out": SubResource("Animation_hh8yt"),
+&"fade_to_death": SubResource("Animation_6ke0s"),
+&"start_fade": SubResource("Animation_fkrse")
+}
+
+[node name="RootUI" type="CanvasLayer" groups=["UI"]]
+process_mode = 3
+script = ExtResource("1_6ke0s")
+
+[node name="Theme" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qoywv")
+
+[node name="PauseScreen" type="ColorRect" parent="Theme"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 1, 1, 0.392157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Theme/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -30.0
+offset_right = 170.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SUSPENDED" type="Label" parent="Theme/PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "SUSPENDED"
+horizontal_alignment = 1
+
+[node name="Enter?" type="Label" parent="Theme/PauseScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Enter?"
+horizontal_alignment = 1
+
+[node name="StartScreen" type="ColorRect" parent="Theme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Start" type="Button" parent="Theme/StartScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -128.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 88
+text = "Enter"
+
+[node name="Title" type="TextureRect" parent="Theme/StartScreen"]
+material = SubResource("ShaderMaterial_5qh0s")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.482
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_5qh0s")
+stretch_mode = 5
+
+[node name="HUD" type="ColorRect" parent="Theme"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HpBar" type="HBoxContainer" parent="Theme/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.03
+anchor_right = 0.8
+anchor_bottom = 0.08
+offset_left = -74.0
+offset_right = 74.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Hp" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
+layout_mode = 2
+
+[node name="Hp2" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
+layout_mode = 2
+
+[node name="Hp3" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
+layout_mode = 2
+
+[node name="DeathScreen" type="ColorRect" parent="Theme"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.129412, 0.129412, 0.392157)
+
+[node name="Label" type="Label" parent="Theme/DeathScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.166
+anchor_top = 0.5
+anchor_right = 0.834
+anchor_bottom = 0.5
+offset_left = -0.240005
+offset_top = -61.0
+offset_right = 0.23999
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "what are words don't hurt me please"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Retry" type="Button" parent="Theme/DeathScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Re-Enter"
+
+[node name="WinScreen" type="ColorRect" parent="Theme"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.466667, 1)
+
+[node name="SunsetForestNoCopyright" type="Sprite2D" parent="Theme/WinScreen"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(320, 240)
+scale = Vector2(0.625, 0.733945)
+texture = ExtResource("4_rugm2")
+
+[node name="EndText" type="Label" parent="Theme/WinScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.5
+offset_top = -225.0
+offset_right = 300.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.717647, 0.72549, 0.027451, 1)
+theme_override_colors/font_shadow_color = Color(0.32472, 0.33, 0.0132, 1)
+theme_override_font_sizes/font_size = 48
+text = "\"And the axe found liberation
+Freed from the cavern
+Bound to reclaim its forest\"
+
+The End...?
+;)"
+horizontal_alignment = 1
+
+[node name="Me" type="Label" parent="Theme/WinScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.313726, 0.54902, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.1116, 0.19854, 0.36, 1)
+theme_override_font_sizes/font_size = 48
+text = "- BlueDragon"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Theme/WinScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = 341.0
+offset_right = 69.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Re-Enter?"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Theme/WinScreen"]
+libraries = {
+&"": SubResource("AnimationLibrary_tgxrj")
+}
+
+[node name="ChromaticAberration" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dx8dt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="ChromaticAberration"]
+rect = Rect2(0, 0, 640, 480)
+
+[node name="Pixellizer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fkrse")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_fkrse")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_fkrse")
+}
+
+[node name="EnterSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dx8dt")
+volume_db = -12.093
+
+[connection signal="pressed" from="Theme/StartScreen/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Theme/DeathScreen/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Theme/WinScreen/RestartButton" to="." method="_on_restart_button_pressed"]

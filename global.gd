@@ -5,6 +5,8 @@ extends Node
 
 #anywayyyyyyy
 
+var dev_mode = false
+
 var checkpoint_pos = Vector2(0,0) #0 is the start, 1,2,3 and so on are real checkkpoints
 
 @onready var Player = get_tree().get_nodes_in_group("Player")[0]
@@ -25,8 +27,16 @@ func set_pos():
 	Player = get_tree().get_nodes_in_group("Player")[0]
 	Player.global_position = checkpoint_pos
 
+	#... fixes a music problem, I know this is a terrible way to do it, bleh...
+	# Fail fast, fail often. Just trying to get a game out and working
+
 	var CameraHold = get_tree().get_nodes_in_group("Player")[1]
 	CameraHold.get_node("StartCamera").enabled = false
 	
 	var UI = get_tree().get_nodes_in_group("UI")[0]
 	UI.started.emit()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("retry"):
+
+		Player.is_dead = true
