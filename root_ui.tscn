@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyvuy3mhi3bpi"]
+[gd_scene load_steps=23 format=3 uid="uid://cyvuy3mhi3bpi"]
 
 [ext_resource type="Script" uid="uid://bd63wfyqmfwby" path="res://UI/root_ui.gd" id="1_6ke0s"]
 [ext_resource type="Theme" uid="uid://c173n3cp6ullh" path="res://UI/ui_theme.tres" id="1_qoywv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://bvdsmokp06kq0" path="res://UI/pixelizer.gdshader" id="4_a8jcl"]
 [ext_resource type="Shader" uid="uid://rw0l3xhy1dqu" path="res://UI/ChromaticAberration.gdshader" id="4_fkrse"]
 [ext_resource type="Texture2D" uid="uid://cyjqq5yruugrb" path="res://UI/sunsetForestNoCopyright.jpg" id="4_rugm2"]
+[ext_resource type="Texture2D" uid="uid://bs8m30rdb2x3u" path="res://UI/Audio Off-1.png.png" id="5_5qh0s"]
 [ext_resource type="AudioStream" uid="uid://b5igtlc0ijl71" path="res://UI/enter.wav" id="6_dx8dt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qh0s"]
@@ -639,6 +640,35 @@ layout_mode = 2
 [node name="Hp3" parent="Theme/HUD/HpBar" instance=ExtResource("3_6ke0s")]
 layout_mode = 2
 
+[node name="AudioOff" type="TextureRect" parent="Theme/HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.05
+offset_left = -70.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture = ExtResource("5_5qh0s")
+
+[node name="Label" type="Label" parent="Theme/HUD/AudioOff"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = 6.0
+offset_right = 51.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Sound Only"
+
 [node name="DeathScreen" type="ColorRect" parent="Theme"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -776,6 +806,19 @@ anchor_bottom = 1.0
 offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SpeedrunTimer" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.97
+anchor_top = 0.97
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "00:00:00"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3

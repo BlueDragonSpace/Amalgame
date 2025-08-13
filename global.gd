@@ -7,6 +7,14 @@ extends Node
 
 var dev_mode = false
 
+var time := 0.0
+var time_string := ''
+
+#bleh remembering UI elements
+#this is the wrong way to do it... but hey
+var timer_visible = false
+var muted = false
+
 var checkpoint_pos = Vector2(0,0) #0 is the start, 1,2,3 and so on are real checkkpoints
 
 @onready var Player = get_tree().get_nodes_in_group("Player")[0]
@@ -33,10 +41,12 @@ func set_pos():
 	var CameraHold = get_tree().get_nodes_in_group("Player")[1]
 	CameraHold.get_node("StartCamera").enabled = false
 	
+	#Ignore this warning, forgot the code for it
 	var UI = get_tree().get_nodes_in_group("UI")[0]
 	UI.started.emit()
 
 func _process(_delta: float) -> void:
+
 	if Input.is_action_just_pressed("retry"):
 
 		Player.is_dead = true
