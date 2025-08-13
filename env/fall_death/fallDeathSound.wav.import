@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://drhbwqxl2eshy"
-path="res://.godot/imported/fallDeathSound.wav-e687ad63a3853f17c72224633b492e0d.sample"
+path="res://.godot/imported/fallDeathSound.wav-ea1c2a29fa1426f8efdefc3a2a336e43.sample"
 
 [deps]
 
-source_file="res://game/env/fall_death/fallDeathSound.wav"
-dest_files=["res://.godot/imported/fallDeathSound.wav-e687ad63a3853f17c72224633b492e0d.sample"]
+source_file="res://env/fall_death/fallDeathSound.wav"
+dest_files=["res://.godot/imported/fallDeathSound.wav-ea1c2a29fa1426f8efdefc3a2a336e43.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://j3p223gpr78r"
-path="res://.godot/imported/EndGameRise.wav-c3af05f35a7aae704f9caade8156d571.sample"
+path="res://.godot/imported/EndGameRise.wav-2fa37b497dc809fa05fc3441ca3381c4.sample"
 
 [deps]
 
-source_file="res://game/env/riseToLight/EndGameRise.wav"
-dest_files=["res://.godot/imported/EndGameRise.wav-c3af05f35a7aae704f9caade8156d571.sample"]
+source_file="res://env/riseToLight/EndGameRise.wav"
+dest_files=["res://.godot/imported/EndGameRise.wav-2fa37b497dc809fa05fc3441ca3381c4.sample"]
 
 [params]
 

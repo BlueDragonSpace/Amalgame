@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0ymdnvjfgrjx"
-path="res://.godot/imported/swingset.png-9440f167e7766cad280613825fca7fff.ctex"
+path="res://.godot/imported/swingset.png-ba4b8a2c85233edb0e8ef2c2dabde744.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/enemy/swinger/swingset.png"
-dest_files=["res://.godot/imported/swingset.png-9440f167e7766cad280613825fca7fff.ctex"]
+source_file="res://enemy/swinger/swingset.png"
+dest_files=["res://.godot/imported/swingset.png-ba4b8a2c85233edb0e8ef2c2dabde744.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bhrvvb7akoi47"
-path="res://.godot/imported/chargeUpBull.wav-478791003884bb0725cd166c0d7634b8.sample"
+path="res://.godot/imported/chargeUpBull.wav-0c155dd32858facf8b33f944ef0c1264.sample"
 
 [deps]
 
-source_file="res://game/enemy/charger/chargeUpBull.wav"
-dest_files=["res://.godot/imported/chargeUpBull.wav-478791003884bb0725cd166c0d7634b8.sample"]
+source_file="res://enemy/charger/chargeUpBull.wav"
+dest_files=["res://.godot/imported/chargeUpBull.wav-0c155dd32858facf8b33f944ef0c1264.sample"]
 
 [params]
 

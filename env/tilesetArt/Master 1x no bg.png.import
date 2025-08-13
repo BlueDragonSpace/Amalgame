@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyy783raq1u8o"
-path="res://.godot/imported/Master 1x no bg.png-1e49e6bd444df55e525da976cd227a9e.ctex"
+path="res://.godot/imported/Master 1x no bg.png-a56e9d21c97e792b3d18b4701ea782ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/env/tilesetArt/Master 1x no bg.png"
-dest_files=["res://.godot/imported/Master 1x no bg.png-1e49e6bd444df55e525da976cd227a9e.ctex"]
+source_file="res://env/tilesetArt/Master 1x no bg.png"
+dest_files=["res://.godot/imported/Master 1x no bg.png-a56e9d21c97e792b3d18b4701ea782ab.ctex"]
 
 [params]
 

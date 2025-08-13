@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck61ak6dg0gfa"
-path="res://.godot/imported/CascadeCoverARt.png-defe339fbb479a100269a57aa71ca6fd.ctex"
+path="res://.godot/imported/CascadeCoverARt.png-3a2c82c4f0d3aff10f99e008b4d3ed1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://misc/miscArt/CascadeCoverARt.png"
-dest_files=["res://.godot/imported/CascadeCoverARt.png-defe339fbb479a100269a57aa71ca6fd.ctex"]
+source_file="res://CascadeCoverARt.png"
+dest_files=["res://.godot/imported/CascadeCoverARt.png-3a2c82c4f0d3aff10f99e008b4d3ed1e.ctex"]
 
 [params]
 

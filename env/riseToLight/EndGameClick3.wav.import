@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bq6h5hb4vpg22"
-path="res://.godot/imported/EndGameClick3.wav-0a3cf5ed8a63b249110acb3b47d624cc.sample"
+path="res://.godot/imported/EndGameClick3.wav-35477b03804fe817516a3ab99b0bd1bd.sample"
 
 [deps]
 
-source_file="res://game/env/riseToLight/EndGameClick3.wav"
-dest_files=["res://.godot/imported/EndGameClick3.wav-0a3cf5ed8a63b249110acb3b47d624cc.sample"]
+source_file="res://env/riseToLight/EndGameClick3.wav"
+dest_files=["res://.godot/imported/EndGameClick3.wav-35477b03804fe817516a3ab99b0bd1bd.sample"]
 
 [params]
 

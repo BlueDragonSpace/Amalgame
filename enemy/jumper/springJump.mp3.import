@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cf6mkycxl48d2"
-path="res://.godot/imported/springJump.mp3-c1999ee439e1b89c951273469c3fbead.mp3str"
+path="res://.godot/imported/springJump.mp3-ff034c399bfb25d5776ad880b60f721f.mp3str"
 
 [deps]
 
-source_file="res://game/enemy/jumper/springJump.mp3"
-dest_files=["res://.godot/imported/springJump.mp3-c1999ee439e1b89c951273469c3fbead.mp3str"]
+source_file="res://enemy/jumper/springJump.mp3"
+dest_files=["res://.godot/imported/springJump.mp3-ff034c399bfb25d5776ad880b60f721f.mp3str"]
 
 [params]
 

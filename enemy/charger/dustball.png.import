@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6ugbp0nigigu"
-path="res://.godot/imported/dustball.png-0d2c1f36f708c639fed5faabe13cc0f5.ctex"
+path="res://.godot/imported/dustball.png-5d906e9e5ff281ba396eff1616752a02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/enemy/charger/dustball.png"
-dest_files=["res://.godot/imported/dustball.png-0d2c1f36f708c639fed5faabe13cc0f5.ctex"]
+source_file="res://enemy/charger/dustball.png"
+dest_files=["res://.godot/imported/dustball.png-5d906e9e5ff281ba396eff1616752a02.ctex"]
 
 [params]
 

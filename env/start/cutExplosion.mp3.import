@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c2sjb3dfkotc3"
-path="res://.godot/imported/cutExplosion.mp3-3609ae210ec2409b5922e89ff487439f.mp3str"
+path="res://.godot/imported/cutExplosion.mp3-f850f297b793288012e83513517d1ecc.mp3str"
 
 [deps]
 
-source_file="res://game/env/start/cutExplosion.mp3"
-dest_files=["res://.godot/imported/cutExplosion.mp3-3609ae210ec2409b5922e89ff487439f.mp3str"]
+source_file="res://env/start/cutExplosion.mp3"
+dest_files=["res://.godot/imported/cutExplosion.mp3-f850f297b793288012e83513517d1ecc.mp3str"]
 
 [params]
 

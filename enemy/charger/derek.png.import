@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://de75n1tsbw72s"
-path="res://.godot/imported/derek.png-97ca13b79470a1041774a809805a0fe6.ctex"
+path="res://.godot/imported/derek.png-3526da7031cf2273ca735846508bcab0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/enemy/charger/derek.png"
-dest_files=["res://.godot/imported/derek.png-97ca13b79470a1041774a809805a0fe6.ctex"]
+source_file="res://enemy/charger/derek.png"
+dest_files=["res://.godot/imported/derek.png-3526da7031cf2273ca735846508bcab0.ctex"]
 
 [params]
 

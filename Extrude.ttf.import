@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bqwi40vtsl3xa"
-path="res://.godot/imported/Extrude.ttf-9f0cc5887f1d13103988570d76878ebe.fontdata"
+path="res://.godot/imported/Extrude.ttf-5041801c543f2074dd1ada9858f32f25.fontdata"
 
 [deps]
 
-source_file="res://misc/miscArt/Extrude.ttf"
-dest_files=["res://.godot/imported/Extrude.ttf-9f0cc5887f1d13103988570d76878ebe.fontdata"]
+source_file="res://Extrude.ttf"
+dest_files=["res://.godot/imported/Extrude.ttf-5041801c543f2074dd1ada9858f32f25.fontdata"]
 
 [params]
 

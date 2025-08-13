@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cc1hpycryvw4g"
-path="res://.godot/imported/spring.mp3-c25011cc74c7fa56638327014c55b985.mp3str"
+path="res://.godot/imported/spring.mp3-b03017f899f35fa5bebddca53f5598b8.mp3str"
 
 [deps]
 
-source_file="res://game/env/jumpPad/spring.mp3"
-dest_files=["res://.godot/imported/spring.mp3-c25011cc74c7fa56638327014c55b985.mp3str"]
+source_file="res://env/jumpPad/spring.mp3"
+dest_files=["res://.godot/imported/spring.mp3-b03017f899f35fa5bebddca53f5598b8.mp3str"]
 
 [params]
 
